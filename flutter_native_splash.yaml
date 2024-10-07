@@ -1,0 +1,13 @@
+dev_dependencies:
+  flutter_native_splash: ^2.4.1
+
+flutter_native_splash:
+#  color: "#666"
+  background_image : assets/splash/splash_background.png
+  image: assets/splash/Icon4x.png
+  android_12:
+#   icon_background_color: "#666"
+   image: assets/splash/ShapedIcon.png
+   background_image: assets/splash/splash_background.png
+  android: true
+  ios: true
