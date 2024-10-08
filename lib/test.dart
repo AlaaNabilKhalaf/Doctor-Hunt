@@ -2,7 +2,8 @@ import 'package:doctor_hunt/Core/Constants/public_data.dart';
 import 'package:flutter/cupertino.dart';
 
 
-// tHis Page is just for testing
+// This Page is just for navigation testing.
+
 class Test extends StatefulWidget {
   const Test({super.key});
 

@@ -1,17 +1,22 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'Core/Networking/bloc_observer/bloc_observer.dart';
 import 'Features/OnBoarding/Presentation/Screens/on_boarding_view.dart';
-
+import 'package:device_preview/device_preview.dart';
 void main() {
   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-  runApp(const DoctorHunt());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const DoctorHunt(), // Wrap your app
+    ),
+  );
 }
 
 class DoctorHunt extends StatelessWidget {

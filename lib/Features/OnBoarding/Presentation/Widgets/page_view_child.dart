@@ -20,16 +20,18 @@ class MyPageViewChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(image),
-        Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 24.w),
-          child: Column(
-            children: [
-              SizedBox(height: 85.h,),
-              MediumText(text: headlineText, textColor: theBlack, fontSize: 28.sp),
-              SizedBox(height: 11.h,),
-              RegularText(text: text, textColor: textGrayColor, fontSize: 18.sp ,maxLine: 4,),
-            ],
+        Expanded(child: Image.asset(image)),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(24.w, 49.h, 24.w, 0),
+            child: Column(
+              children: [
+               // SizedBox(height: 60.h,),
+                MediumText(text: headlineText, textColor: theBlack, fontSize: 28.sp),
+                SizedBox(height: 6.h,),
+                RegularText(text: text, textColor: textGrayColor, fontSize: 18.sp ,maxLine: 4,),
+              ],
+            ),
           ),
         )
 

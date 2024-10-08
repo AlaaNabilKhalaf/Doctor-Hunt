@@ -23,7 +23,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding:EdgeInsets.symmetric(horizontal: 20.w),
+        padding:EdgeInsets.fromLTRB(20.w, 25.h, 20.w, 25.h),
         // alignment: Alignment.center,
         // height: double.infinity,
         // width: double.infinity,
@@ -35,7 +35,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           // mainAxisAlignment: MainAxisAlignment.center,
           //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 100.h,),
+            // SizedBox(height: 100.h,),
             const Expanded(
                 // flex: 2,
                 child: OnBoardingPageView(
@@ -70,7 +70,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               },
               buttonColor: Colors.transparent,
             ),
-            SizedBox(height: 24.h,)
+            // SizedBox(height: 24.h,)
 
           ],
         ),
