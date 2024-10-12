@@ -1,6 +1,5 @@
 import 'package:doctor_hunt/Core/Constants/assets_data.dart';
 import 'package:doctor_hunt/Core/Constants/colors.dart';
-import 'package:doctor_hunt/Core/Constants/public_data.dart';
 import 'package:doctor_hunt/Core/Widgets/texts.dart';
 import 'package:doctor_hunt/test.dart';
 import 'package:flutter/material.dart';
@@ -16,65 +15,70 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  // final controller = PageController(
-  //   initialPage: 0
-  // );
+  int currentPage = 0; //! Local state to track the current page
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding:EdgeInsets.fromLTRB(20.w, 25.h, 20.w, 25.h),
-        // alignment: Alignment.center,
-        // height: double.infinity,
-        // width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage(AssetsData.onBoardingBackground,
-          ), fit: BoxFit.fill)
+          image: DecorationImage(
+            image: AssetImage(AssetsData.onBoardingBackground),
+            fit: BoxFit.fill,
+          ),
         ),
-        child:  Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
           children: [
-            // SizedBox(height: 100.h,),
-            const Expanded(
-                // flex: 2,
-                child: OnBoardingPageView(
-
-                )),
+            SizedBox(height: 100.h),
+            Expanded(
+              child: OnBoardingPageView(
+                onPageChanged: (val) {
+                  setState(() {
+                    currentPage = val; 
+                  });
+                },
+              ),
+            ),
             RegularButton(
-              text: MediumText(text: "Get Started", textColor: theWhite, fontSize: 18.sp),
+              text: MediumText(
+                text: "Get Started",
+                textColor: theWhite,
+                fontSize: 18.sp,
+              ),
               width: 678.w,
               height: 54.h,
               borderRadius: 10.r,
-              onTap: (){
-                // context.watch<StatisticsFilterCubit>().selectedFilter
+              onTap: () {
                 setState(() {
-                  if(onboardingCounter == 2 || onboardingCounter > 2){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const Test()));
-                  }else{
-                    onboardingCounter++;
+                  if (currentPage == 2 || currentPage > 2) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Test()));
+                  } else {
+                    currentPage++;
                   }
                 });
-
               },
               buttonColor: primeColor,
             ),
-
             RegularButton(
-              text: RegularText(text: "Skip", textColor: textGrayColor, fontSize: 14.sp),
+              text: RegularText(
+                text: "Skip",
+                textColor: textGrayColor,
+                fontSize: 14.sp,
+              ),
               width: 678.w,
               height: 54.h,
               borderRadius: 10.r,
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Test()));
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Test()));
               },
               buttonColor: Colors.transparent,
             ),
-            // SizedBox(height: 24.h,)
-
+            SizedBox(height: 24.h),
           ],
         ),
-
       ),
     );
   }

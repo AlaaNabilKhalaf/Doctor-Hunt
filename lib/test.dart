@@ -1,4 +1,3 @@
-import 'package:doctor_hunt/Core/Constants/public_data.dart';
 import 'package:flutter/cupertino.dart';
 
 

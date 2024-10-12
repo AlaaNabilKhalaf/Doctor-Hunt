@@ -6,7 +6,7 @@ flutter_native_splash:
   background_image : assets/splash/splash_background.png
   image: assets/splash/Icon4x.png
   android_12:
-#   icon_background_color: "#666"
+#   icon_background_color: "#"
    image: assets/splash/ShapedIcon.png
    background_image: assets/splash/splash_background.png
   android: true
